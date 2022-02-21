@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Goal extends Model
+class Platform extends Model
 {
     use HasFactory;
-    
-    //relación uno a muchos inversa
-    public function sections(){
-        return $this->belongsTo('App\Models\Course');
+
+    //Relación uno a muchos
+    public function lessons(){
+        return $this->belongsTo('App\Models\Lesson');
     }
 }

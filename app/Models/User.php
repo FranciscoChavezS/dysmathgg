@@ -69,7 +69,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Course');
     }
 
-    //relación uno a muchos
     public function reviews(){
         return $this->hasMany('App\Models\Review');
     }
@@ -77,5 +76,9 @@ class User extends Authenticatable
     //relación muchos a muchos
     public function courses_enrolled(){
         return $this->belongsToMany('App\Models\Course');
+    }
+
+    public function lessons(){
+        return $this->belongsToMany('App\Models\Lesson');
     }
 }
