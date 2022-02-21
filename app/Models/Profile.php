@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Profile extends Model
 {
     use HasFactory;
 
-    //Relación uno a muchos
-    public function courses(){
-        return $this->hasMany('App\Models\Course');
+     //relación uno a uno
+
+     public function user(){
+        return $this->belongsTo('App\Models\User');
     }
 }
+
