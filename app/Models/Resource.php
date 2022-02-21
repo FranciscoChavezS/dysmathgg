@@ -9,6 +9,8 @@ class Resource extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
      //Relación polimórfica
      public function resourceable(){
         return $this->morphTo();

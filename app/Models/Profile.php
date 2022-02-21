@@ -9,6 +9,8 @@ class Profile extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
      //relación uno a uno
 
      public function user(){
