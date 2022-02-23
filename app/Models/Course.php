@@ -17,6 +17,7 @@ class Course extends Model
     const REVISION = 2;
     const PUBLICADO = 3;
 
+    //muestre la calificación del curso
     public function getRatingAttribute(){
 
         if($this->reviews_count){
@@ -29,10 +30,29 @@ class Course extends Model
         
     }
 
+    //Url amigable
     public function getRouteKeyName()
     {
         return "slug";
     }
+
+    //Query Scope
+    public function scopeCategory($query, $category_id)
+    {
+        //Se ejecuta la consulta solo si hay algo almacenado en Category_id
+        if($category_id){
+            return $query->where('category_id', $category_id); 
+        }
+    }
+     //Query Scope
+     public function scopeLevel($query, $level_id)
+     {
+         //Se ejecuta la consulta solo si hay algo almacenado en level_id
+         if($level_id){
+             return $query->where('level_id', $level_id); 
+         }
+     }
+
 
      //relación uno a muchos
      public function reviews(){
