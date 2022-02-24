@@ -90,7 +90,7 @@
                     
                     @can('enrolled', $course)
 
-                        <a href="{{route('course.status', $course)}}" class="btn btn-danger btn-block mt-4">Continuar con el curso</a>
+                        <a href="{{route('courses.status', $course)}}" class="btn btn-danger btn-block mt-4">Continuar con el curso</a>
                     @else    
                         <form action="{{route('courses.enrolled', $course)}}" method="post">
                             @csrf

@@ -11,6 +11,11 @@ class Lesson extends Model
 
     protected $guarded = ['id'];
 
+    //Recuperar registros de lecciones
+    public function getCompletedAttribute(){
+        return $this->users->contains(auth()->user()->id);
+    }
+
     //Relación uno a uno  
     public function description(){
         return $this->hasOne('App\Models\Description');

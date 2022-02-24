@@ -28,6 +28,10 @@ class CourseController extends Controller
         //Recuperar la relación del usuario logueado y devoler id
         $course->students()->attach(auth()->user()->id); //Agregar registros a la BD al registrarte a curso
 
-        return redirect()->route('course.status', $course);
+        return redirect()->route('courses.status', $course);
+    }
+
+    public function status(Course $course){
+        return view('courses.status', compact('course'));
     }
 }
