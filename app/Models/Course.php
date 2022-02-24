@@ -91,7 +91,7 @@ class Course extends Model
 
     //relación uno a muchos inverso
     public function category(){
-        return $this->belongsTo('App\Models\Level');
+        return $this->belongsTo('App\Models\Category');
     }
 
     //relación uno a muchos inverso
