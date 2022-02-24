@@ -8428,6 +8428,9 @@ select {
 .h-32 {
   height: 8rem;
 }
+.h-40 {
+  height: 10rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -8953,6 +8956,9 @@ select {
 .leading-4 {
   line-height: 1rem;
 }
+.leading-10 {
+  line-height: 2.5rem;
+}
 .tracking-widest {
   letter-spacing: 0.1em;
 }
@@ -9292,6 +9298,10 @@ select {
 .hover\:bg-purple-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(168 85 247 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
