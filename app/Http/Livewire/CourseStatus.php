@@ -5,9 +5,13 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Course;
 use App\Models\Lesson;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class CourseStatus extends Component
 {
+
+    use AuthorizesRequests;
+    
     //Declarar variables para mostrar en la vista
     public $course;
     public $current;
@@ -29,12 +33,14 @@ class CourseStatus extends Component
                 $this->next = $course->lessons[$this->index + 1]; */
                 break;
             }
-            //Si todas las lecciones están marcadas como terminadas se asigna la última lección 
-            if(!$this->current){
-                $this->current = $course->lessons->last();
-
-            }
         }
+         //Si todas las lecciones están marcadas como terminadas se asigna la última lección 
+         if(!$this->current){
+            $this->current = $course->lessons->last();
+
+        }
+
+        $this->authorize('enrolled', $course);
     }
 
     public function render()

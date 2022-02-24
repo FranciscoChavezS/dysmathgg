@@ -26,4 +26,14 @@ class CoursePolicy
         //Recuperar registro de los usuarios matriculados a un curso
         return $course->students->contains($user->id); 
     }
+
+    //Validar Status de curso 
+    public function published(?User $user, Course $course){
+        if($course->status == 3){
+            return true;
+            
+        }else{
+            return false;
+        }
+    }
 }

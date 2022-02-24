@@ -50,7 +50,7 @@
                     </figure>
 
                     <div>
-                        <p>{{$course->teacher->name}}</p>
+                        <p>Prof. {{$course->teacher->name}}</p>
                         <a class="text-blue-500 text-sm" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
                     </div>
                 </div>
