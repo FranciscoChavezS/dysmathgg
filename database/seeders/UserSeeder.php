@@ -14,11 +14,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        $user = User::create([
             'name' => 'Francisco Javier Chávez',
             'email' => 'guero@hotmail.com',
             'password' => bcrypt('chavacheves')
-        ]);
+            ]);
+
+        $user->assignRole('Administrador');
 
         User::factory(99)->create(); //Generar 99 registros de usuarios 
     }
