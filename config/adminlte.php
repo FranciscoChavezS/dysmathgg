@@ -248,25 +248,33 @@ return [
         ],
         [
             'text'        => 'Tablero',
-            'route'         => 'admin.home',
+            'route'       => 'admin.home',
             'icon'        => 'fa fa-fw fa-tachometer-alt',
 
         ],
         [
             'text'        => 'Lista de Roles',
-            'route'         => 'admin.roles.index',
+            'route'       => 'admin.roles.index',
             'icon'        => 'fas fa-fw fa-users-cog',
+            'active'      => ['admin/roles*']
+
+        ],
+        [
+            'text'        => 'Usuarios',
+            'route'       => 'admin.users.index',
+            'icon'        => 'fas fa-fw fa-users',
+            'active'      => ['admin/users*']
 
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Perfil',
+            'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'url'  => 'user/profile',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
@@ -477,5 +485,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];

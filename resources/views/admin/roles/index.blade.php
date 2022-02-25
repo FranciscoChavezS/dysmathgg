@@ -17,7 +17,7 @@
     <div class="card">
 
         <div class="card-header">
-            <a href="{{route('admin.roles.create')}} " class="btn btn-primary">Añadir nuevo rol</a>
+            <a href="{{route('admin.roles.create')}} " class="btn btn-outline-primary">Añadir nuevo rol</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -26,6 +26,8 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Permisos</th>
+                        <th>Fecha de Creación</th>
+                        <th>Acciones</th>
                         <th colspan="2"></th>
                     </tr>
                 </thead>
@@ -42,13 +44,14 @@
                                     <span class="badge badge-danger">Permisos no añadidos</span>
                                 @endforelse
                               </td>
-                            <td width="10px"><a href="{{route('admin.roles.edit', $role)}}" class="btn btn-secondary">Editar</a></td>
-                            <td width="10px">
+                            <td class="text-secondary">{{ $role->created_at->toFormattedDateString() }}</td>
+                            <td width="5px" ><a href="{{route('admin.roles.edit', $role)}}" class="btn btn-secondary"><i class="fas fa-edit"></i></a></td>
+                            <td width="5px">
                                 <form action="{{route('admin.roles.destroy', $role)}}" method="POST">
                                     @method('delete')
                                     @csrf
     
-                                    <button class="btn btn-danger">Eliminar</button>
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

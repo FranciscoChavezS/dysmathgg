@@ -95,6 +95,10 @@ class RoleController extends Controller
             'permissions' => 'required'
         ]);
 
+        $role->update([
+            'name' => $request->name
+        ]);
+
         //Eliminar todos los registros de un rol y generarlos nuevamente con los nuevos parámetros
         $role->permissions()->sync($request->permissions);
 
