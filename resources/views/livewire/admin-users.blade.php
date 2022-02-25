@@ -11,6 +11,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Email</th>
+                            <th>Rol de Usuario</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -21,6 +22,11 @@
                                 <td>{{$user->id}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
+                                <td>
+                                    @foreach($user->roles as $role)
+                                      {{ $role->name }}
+                                    @endforeach
+                                </td>
                                 <td width="10px">
                                     <a class="btn btn-primary" href="{{route('admin.users.edit', $user)}}"><i class="fas fa-edit"></i></a>
                                 </td>
