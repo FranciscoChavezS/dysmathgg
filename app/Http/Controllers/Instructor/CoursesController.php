@@ -111,7 +111,40 @@ class CoursesController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        //Regla de validación para formulario
+        $request->validate([
+            'title' => 'required',
+            'slug' => 'required|unique:courses,slug,' . $course->id,
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required',
+        ]);
+
+        $course->update($request->all());
+
+        //Actualizar imagen 
+        if($request->file('file')){
+            $url = Storage::put('public/cursos/', $request->file('file'));
+
+            //Si existe una imagen en el curso se elimina y se actualiza con la nueva información
+            if($course->image){
+                Storage::delete($course->image->url);
+
+                $course->image->update([
+                    'url' => $url
+                ]);
+            }else{ //Si la image no existe se crea un nuevo registro en la tabla
+                $course->image()->create([
+                    'url' => $url
+                ]);
+            }
+        }
+
+
+        return redirect()->route('instructor.courses.edit', $course)->with('info', 'El curso se actualizó correctamente');
+
     }
 
     /**
