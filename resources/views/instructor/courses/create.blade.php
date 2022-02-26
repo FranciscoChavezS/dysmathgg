@@ -7,12 +7,16 @@
 
                 <hr class="mt-2 mb-6">
 
-                {!! Form::open(['route' => 'instructor.courses.store', 'files' => true]) !!}
+                {!! Form::open(['route' => 'instructor.courses.store', 'files' => true, 'autocomplete' => 'off']) !!}
+
+
+                    {!! Form::hidden('user_id', auth()->user()->id) !!}
+
 
                     @include('instructor.courses.partials.form')
 
                     <div class="flex justify-end">
-                        {!! Form::submit('Crear nuevo curso', ['class' => 'btn btn-primary']) !!}
+                        {!! Form::submit('Crear nuevo curso', ['class' => 'btn btn-primary cursor-pointer']) !!}
 
                     </div>
 
