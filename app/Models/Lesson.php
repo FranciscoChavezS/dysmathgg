@@ -11,44 +11,40 @@ class Lesson extends Model
 
     protected $guarded = ['id'];
 
-    //Recuperar registros de lecciones
-    public function getCompletedAttribute(){
-        return $this->users->contains(auth()->user()->id);
+    public function getCompletedAttribute() {
+        return $this->users->contains(auth()->user());
     }
 
-    //Relación uno a uno  
-    public function description(){
+    // One to one relation
+    public function description() {
         return $this->hasOne('App\Models\Description');
     }
 
-    //Relación uno a muchos inversa 
-    public function sections(){
+    // One to many inverse relation
+    public function section() {
         return $this->belongsTo('App\Models\Section');
     }
 
-    //Relación uno a muchos inversa 
-    public function platforms(){
+    public function platform() {
         return $this->belongsTo('App\Models\Platform');
     }
 
-     //Relación muchos a muchos  
-     public function users(){
+    // Many to many relation
+    public function users() {
         return $this->belongsToMany('App\Models\User');
     }
 
-     //Relación uno a uno polimórfica
-     public function resource(){
-        return $this->morphOne('App\Models\Resource','resourceable');
+    // One to one polymorphic
+    public function resource() {
+        return $this->morphOne('App\Models\Resource', 'resourceable');
     }
 
-     //Relación uno a muchos polimórfica
-     public function comments(){
-        return $this->morphMany('App\Models\Comment','commentable');
+    // One to many polymorphic
+    public function comments() {
+        return $this->morphMany('App\Models\Comment', 'commentable');
     }
 
-    public function reactions(){
-        return $this->morphMany('App\Models\Reaction','reactionable');
+    public function reactions() {
+        return $this->morphMany('App\Models\Reaction', 'reactionable');
     }
-    
-
 }

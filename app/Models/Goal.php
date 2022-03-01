@@ -12,7 +12,7 @@ class Goal extends Model
     protected $guarded = ['id'];
     
     //relación uno a muchos inversa
-    public function sections(){
+    public function course(){
         return $this->belongsTo('App\Models\Course');
     }
 }

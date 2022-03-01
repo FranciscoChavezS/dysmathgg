@@ -13,7 +13,7 @@ class Audience extends Model
     use HasFactory;
 
     //relación uno a muchos inversa
-    public function sections(){
+    public function course(){
         return $this->belongsTo('App\Models\Course');
     }
 
